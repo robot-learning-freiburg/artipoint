@@ -33,7 +33,7 @@ Dataset Details:
 - Within each sequence folder you will find:
     - Depth and RGB data under `depth` / `rgb`.
     - The interaction intervals are defined in `matched_cues.csv`.
-    - The GT camera odometry is provided in `arti4d/raw/SCENE/SEQUENCE/odom`.
+    - The GT camera odometry is provided under `odom`.
     - We also provide a mesh and point cloud reconstructions generated via TSDF-fusion: `compressed_mesh.ply` / `compressed_point_cloud.ply`
     - Furthermore, there is also a compiled video of the demonstration sequence contained.
 
