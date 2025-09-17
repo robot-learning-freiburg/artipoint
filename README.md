@@ -2,6 +2,17 @@
 [**arXiv**](https://arxiv.org/abs/2509.01708) | [**Website**](https://artipoint.cs.uni-freiburg.de/) | [**Video**](https://youtu.be/uhd571Una-g?si=a4uO2oKJE2m8htH-)
 
 This repository contains the implementation of ArtiPoint and the Arti4D dataset:
+> **Articulated Object Estimation in the Wild**
+>
+> [Abdelrhman Werby]()&ast;, [Martin Büchner](https://rl.uni-freiburg.de/people/buechner)&ast;, [Adrian Röfer](https://rl.uni-freiburg.de/people/roefer)&ast;, [Chenguang Huang](https://www.utn.de/person/chenguang-huang/), [Wolfram Burgard](https://www.utn.de/person/wolfram-burgard-2/) and [Abhinav Valada](https://rl.uni-freiburg.de/people/valada). <br>
+> &ast;Equal contribution. <br> 
+>
+> Conference on Robot Learning (CoRL), 2025.
+
+<p align="center">
+  <img src="./assets/artipoint-teaser.png" alt="Teaser of ArtiPoint and Arti4D" width="800" />
+</p>
+
 
 
 ## 🗄️  Arti4D Dataset
@@ -24,6 +35,7 @@ Dataset Details:
     - The interaction intervals are defined in `matched_cues.csv`.
     - The GT camera odometry is provided in `arti4d/raw/SCENE/SEQUENCE/odom`.
     - We also provide a mesh and point cloud reconstructions generated via TSDF-fusion: `compressed_mesh.ply` / `compressed_point_cloud.ply`
+    - Furthermore, there is also a compiled video of the demonstration sequence contained.
 
 At the moment we do only support the raw data download. Please contact [buechner@cs.uni-freiburg.de](mailto:buechner@cs.uni-freiburg.de) in case you require the rosbag data.
 
@@ -32,16 +44,7 @@ At the moment we do only support the raw data download. Please contact [buechner
 ## ArtiPoint Code
 Coming soon!
 
-> **Articulated Object Estimation in the Wild**
->
-> [Abdelrhman Werby]()&ast;, [Martin Büchner](https://rl.uni-freiburg.de/people/buechner)&ast;, [Adrian Röfer](https://rl.uni-freiburg.de/people/roefer)&ast;, [Chenguang Huang](https://www.utn.de/person/chenguang-huang/), [Wolfram Burgard](https://www.utn.de/person/wolfram-burgard-2/) and [Abhinav Valada](https://rl.uni-freiburg.de/people/valada). <br>
-> &ast;Equal contribution. <br> 
->
-> Conference on Robot Learning (CoRL), 2025.
 
-<p align="center">
-  <img src="./assets/artipoint-teaser.png" alt="Teaser of ArtiPoint and Arti4D" width="800" />
-</p>
 
 If you find our work useful, please consider citing our paper:
 ```
