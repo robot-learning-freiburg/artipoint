@@ -39,6 +39,13 @@ Dataset Details:
 
 At the moment we do only support the raw data download. Please contact [buechner@cs.uni-freiburg.de](mailto:buechner@cs.uni-freiburg.de) in case you require the rosbag data.
 
+**Predicted camera odometry**
+Furthermore, we also provide the camera odometry of [DROID-SLAM](https://github.com/princeton-vl/DROID-SLAM) and its registrations to the recorded maps using [KISS-MATCHER](https://github.com/MIT-SPARK/KISS-Matcher):
+```
+wget http://aisdatasets.cs.uni-freiburg.de/arti4d/droid-slam-outputs.zip
+wget http://aisdatasets.cs.uni-freiburg.de/arti4d/droid-slam-registrations.zip
+```
+Stay tuned for the code release in order to load them into our model.
 
 
 ## ArtiPoint Code
