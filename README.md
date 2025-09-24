@@ -10,9 +10,55 @@ This repository contains the implementation of ArtiPoint and the Arti4D dataset:
 > Conference on Robot Learning (CoRL), 2025.
 
 <p align="center">
-  <img src="./assets/artipoint-teaser.png" alt="Teaser of ArtiPoint and Arti4D" width="800" />
+   <img src="./assets/artipoint-teaser.png" alt="Teaser of ArtiPoint and Arti4D" width="800" />
 </p>
 
+
+## 🏇 Quick Start
+
+Follow these steps to install and run ArtiPoint.
+
+1) Install environment
+
+```bash
+git clone https://github.com/robot-learning-freiburg/artipoint.git
+cd artipoint
+conda env create -f environment.yaml
+conda activate artimap
+pip install -e .
+```
+
+2) Download model weights
+
+```bash
+mkdir -p checkpoints && cd checkpoints
+
+# Mobile-SAM
+gdown --fuzzy "https://drive.google.com/file/d/1dE-YAG-1mFCBmao2rHDp0n-PP4eH7SjE/view?usp=sharing"
+unzip weight.zip
+
+# CoTracker (offline and/or online)
+wget https://huggingface.co/facebook/cotracker3/resolve/main/scaled_offline.pth
+wget https://huggingface.co/facebook/cotracker3/resolve/main/scaled_online.pth || true
+
+cd ..
+```
+
+3) Run on a dataset
+
+```bash
+# Minimal run (uses defaults)
+artipoint
+
+# Specify dataset root (Arti4D path)
+artipoint dataset.root_path=/path/to/arti4d/raw
+
+# Common options
+artipoint \
+   dataset.root_path=/path/to/arti4d/raw \
+   debugging.write_results=true \
+   visualization.show_3d_tracks=true
+```
 
 
 ## 🗄️  Arti4D Dataset
@@ -31,11 +77,11 @@ Dataset Details:
 - The overall directory structure follows this format: `arti4d/raw/SCENE/SEQUENCE/`. Each scene defines a certain environment whereas the sequences are recordings within that particular scene.
 - Difficulty levels and axis types  are contained in `arti4d/raw/metadata.yaml`.
 - Within each sequence folder you will find:
-    - Depth and RGB data under `depth` / `rgb`.
-    - The interaction intervals are defined in `matched_cues.csv`.
-    - The GT camera odometry is provided under `odom`.
-    - We also provide a mesh and point cloud reconstructions generated via TSDF-fusion: `compressed_mesh.ply` / `compressed_point_cloud.ply`
-    - Furthermore, there is also a compiled video of the demonstration sequence contained.
+      - Depth and RGB data under `depth` / `rgb`.
+      - The interaction intervals are defined in `matched_cues.csv`.
+      - The GT camera odometry is provided under `odom`.
+      - We also provide a mesh and point cloud reconstructions generated via TSDF-fusion: `compressed_mesh.ply` / `compressed_point_cloud.ply`
+      - Furthermore, there is also a compiled video of the demonstration sequence contained.
 
 At the moment we do only support the raw data download. Please contact [buechner@cs.uni-freiburg.de](mailto:buechner@cs.uni-freiburg.de) in case you require the rosbag data.
 
@@ -45,20 +91,19 @@ Furthermore, we also provide the camera odometry of [DROID-SLAM](https://github.
 wget http://aisdatasets.cs.uni-freiburg.de/arti4d/droid-slam-outputs.zip
 wget http://aisdatasets.cs.uni-freiburg.de/arti4d/droid-slam-registrations.zip
 ```
-Stay tuned for the code release in order to load them into our model.
-
-
-## ArtiPoint Code
-Coming soon!
-
-
 
 If you find our work useful, please consider citing our paper:
 ```
 @article{werby2025articulated,
-  author={Werby, Abdelrhman and Buechner, Martin and Roefer, Adrian and Huang, Chenguang and Burgard, Wolfram and Valada, Abhinav},
-  title={Articulated Object Estimation in the Wild},
-  journal={Conference on Robot Learning (CoRL)},
-  year={2025},
+   author={Werby, Abdelrhman and Buechner, Martin and Roefer, Adrian and Huang, Chenguang and Burgard, Wolfram and Valada, Abhinav},
+   title={Articulated Object Estimation in the Wild},
+   journal={Conference on Robot Learning (CoRL)},
+   year={2025},
 }
 ```
+
+## ToDo
+- [x] Initial code release
+- [ ] Evaluation protocol
+- [ ] RIPL factor graph implementation (Buchanan et al.)
+
