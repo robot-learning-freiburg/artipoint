@@ -1,0 +1,37 @@
+name: artipoint
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - gtsam
+  - pybind11
+  - numpy
+  - pip
+  - matplotlib
+  - pyyaml
+  - tqdm
+  - pip:
+    - torch
+    - torchvision
+    - torchaudio
+    - pytorch-lightning
+    - gdown
+    - ultralytics
+    - yacs
+    - h5py
+    - timm
+    - opencv-python
+    - open3d
+    - scipy
+    - loguru
+    - pycryptodomex
+    - gnupg
+    - rospkg
+    - flow_vis
+    - hydra-core
+    - pycryptodomex
+    - tensorboard
+    - imageio[ffmpeg]
+    - git+https://github.com/ChaoningZhang/MobileSAM.git
+    - git+https://github.com/facebookresearch/co-tracker.git

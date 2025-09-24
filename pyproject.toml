@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artipoint"
+version = "0.1.0"
+description = "ArtiPoint: Articulated Object Tracking and Motion Estimation from RGB-D Data"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Martin Büchner", email = "buechner@cs.uni-freiburg.de" }
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Scientific/Engineering :: Computer Vision",
+]
+dependencies = [
+  "torch>=1.9.0",
+  "torchvision>=0.10.0",
+  "torchaudio>=0.9.0",
+  "pytorch-lightning>=1.5.0",
+  "numpy>=1.21.0",
+  "opencv-python>=4.5.0",
+  "open3d>=0.13.0",
+  "scipy>=1.7.0",
+  "matplotlib>=3.4.0",
+  "tqdm>=4.60.0",
+  "pyyaml>=5.4.0",
+  "loguru>=0.5.0",
+  "hydra-core>=1.1.0",
+  "omegaconf>=2.1.0",
+  "ultralytics>=8.0.0",
+  "scikit-learn>=1.0.0",
+  "imageio[ffmpeg]>=2.9.0",
+  "gdown>=4.0.0",
+  "h5py>=3.1.0",
+  "timm>=0.4.0",
+  "tensorboard>=2.7.0",
+  "rosbags>=0.9.0",
+  "flow_vis",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=6.0",
+  "black>=21.0",
+  "isort>=5.0",
+  "flake8>=3.9",
+]
+
+[project.urls]
+Homepage = "https://artipoint.cs.uni-freiburg.de/"
+
+[project.scripts]
+artipoint = "artipoint.run:main"
+artipoint-run = "artipoint.run:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["artipoint*"]
+
+[tool.setuptools.package-data]
+artipoint = ["configs/*.yaml", "configs/*.yml"]
