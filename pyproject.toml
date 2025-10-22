@@ -49,6 +49,7 @@ dependencies = [
   "tensorboard>=2.7.0",
   "rosbags>=0.9.0",
   "flow_vis",
+  "ripl-articulation"
 ]
 
 [project.optional-dependencies]

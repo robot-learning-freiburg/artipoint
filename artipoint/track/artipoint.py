@@ -15,6 +15,8 @@ import open3d as o3d
 from omegaconf import DictConfig, OmegaConf
 from tqdm import tqdm
 
+from ripl_articulation import solve_articulation_from_poses
+
 from artipoint.dataloader.arti4d import Arti4DDataset
 from artipoint.factor_graph.pose_est import PoseEstFactorGraph
 from artipoint.utils.articulation_helper import estimate_motion_point_bisectors
@@ -364,12 +366,12 @@ class ArtiPoint:
             traj, free_traj, results = self.estimate_motion(pairs, config=self.cfg)
             if results:  # Only add if estimation was successful
 
-                # Run RIPL FG (Buchanan et al. https://www.ripl-lab.com/)
+                # Run RIPL FG (Buchanan et al. https://github.com/ripl-lab/ripl_articulation)
                 w_T_a = [free_traj[0]] * len(free_traj)
                 w_T_b = free_traj
                 w_T_a = np.array(w_T_a)
                 w_T_b = np.array(w_T_b)
-                xi, thetas = solve_articulation(
+                xi, thetas = solve_articulation_from_poses(
                     w_T_a, w_T_b, prior_theta=0.0, prior_xi=None
                 )
                 w, v = xi[:3], xi[3:]
