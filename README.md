@@ -104,6 +104,7 @@ If you find our work useful, please consider citing our paper:
 
 ## ToDo
 - [x] Initial code release
+- [x] RIPL factor graph implementation
 - [ ] Evaluation protocol
-- [ ] RIPL factor graph implementation (Buchanan et al.)
+
 
