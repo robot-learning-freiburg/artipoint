@@ -24,7 +24,7 @@ Follow these steps to install and run ArtiPoint.
 git clone https://github.com/robot-learning-freiburg/artipoint.git
 cd artipoint
 conda env create -f environment.yaml
-conda activate artimap
+conda activate artipoint
 pip install -e .
 ```
 
